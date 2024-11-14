@@ -31,11 +31,11 @@ import io.jenkins.plugins.twofactor.jenkins.globalConfig.GlobalConfig;
 import io.jenkins.plugins.twofactor.jenkins.tfaMethods.TfaMethodType;
 import jenkins.model.Jenkins;
 import org.kohsuke.stapler.DataBoundConstructor;
-import org.kohsuke.stapler.StaplerRequest;
-import org.kohsuke.stapler.StaplerResponse;
+import org.kohsuke.stapler.StaplerRequest2;
+import org.kohsuke.stapler.StaplerResponse2;
 import org.kohsuke.stapler.interceptor.RequirePOST;
 
-import javax.servlet.ServletException;
+import jakarta.servlet.ServletException;
 import java.io.IOException;
 import java.util.logging.Logger;
 
@@ -54,14 +54,14 @@ public class OtpOverEmailConfig extends AbstractTfaConfig {
 
     @RequirePOST
     @Override
-    public void doConfigure(StaplerRequest req, StaplerResponse res)
+    public void doConfigure(StaplerRequest2 req, StaplerResponse2 res)
             throws IOException, ServletException {
         redirectToAuthPath(req, res);
     }
 
     @SuppressWarnings("unused")
     @RequirePOST
-    public void doReset(StaplerRequest req, StaplerResponse rsp)
+    public void doReset(StaplerRequest2 req, StaplerResponse2 rsp)
             throws IOException, ServletException {
             Jenkins.get().checkPermission(Jenkins.READ);
 

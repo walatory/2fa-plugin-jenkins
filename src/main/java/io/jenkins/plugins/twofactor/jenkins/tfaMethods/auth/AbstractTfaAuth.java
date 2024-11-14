@@ -7,12 +7,12 @@ import io.jenkins.plugins.twofactor.jenkins.tfaFilters.TwoFactorAuthFilter;
 import io.jenkins.plugins.twofactor.jenkins.tfaFilters.TwoFactorAuthResetFilter;
 import io.jenkins.plugins.twofactor.jenkins.tfaMethods.TfaMethodType;
 import io.jenkins.plugins.twofactor.jenkins.user.UserTfaCookieTokenService;
-import org.kohsuke.stapler.StaplerRequest;
-import org.kohsuke.stapler.StaplerResponse;
+import org.kohsuke.stapler.StaplerRequest2;
+import org.kohsuke.stapler.StaplerResponse2;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -38,7 +38,7 @@ public abstract class AbstractTfaAuth implements Action {
     }
 
 
-    abstract public void doAuthenticate(StaplerRequest req, StaplerResponse res)
+    abstract public void doAuthenticate(StaplerRequest2 req, StaplerResponse2 res)
             throws ServletException, IOException;
 
     protected void allow2FaAccessAndRedirect(

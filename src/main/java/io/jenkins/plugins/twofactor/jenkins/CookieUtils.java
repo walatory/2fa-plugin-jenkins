@@ -1,7 +1,7 @@
 package io.jenkins.plugins.twofactor.jenkins;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -13,7 +13,7 @@ public class CookieUtils {
     public static Cookie createTfaSessionCookie(UUID token, int timeout) {
         var cookie = new Cookie(TFA_COOKIE_NAME, token.toString());
         cookie.setPath("/");
-        cookie.setSecure(true);
+        cookie.setSecure(false);
         cookie.setHttpOnly(true);
         cookie.setMaxAge(timeout);
 

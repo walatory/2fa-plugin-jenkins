@@ -33,12 +33,12 @@ import io.jenkins.plugins.twofactor.constants.PluginUrls;
 import jenkins.model.Jenkins;
 import net.sf.json.JSONObject;
 import org.kohsuke.stapler.QueryParameter;
-import org.kohsuke.stapler.StaplerRequest;
-import org.kohsuke.stapler.StaplerResponse;
+import org.kohsuke.stapler.StaplerRequest2;
+import org.kohsuke.stapler.StaplerResponse2;
 import org.kohsuke.stapler.interceptor.RequirePOST;
 import org.kohsuke.stapler.verb.POST;
 
-import javax.servlet.ServletException;
+import jakarta.servlet.ServletException;
 import java.io.IOException;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
@@ -95,7 +95,7 @@ public class GlobalConfigView extends ManagementLink implements Describable<Glob
   }
 
   @RequirePOST
-  public void doSaveGlobalTfaSettings(StaplerRequest req, StaplerResponse rsp)
+  public void doSaveGlobalTfaSettings(StaplerRequest2 req, StaplerResponse2 rsp)
       throws IOException, ServletException, Descriptor.FormException {
     try {
       Jenkins.get().checkPermission(Jenkins.ADMINISTER);

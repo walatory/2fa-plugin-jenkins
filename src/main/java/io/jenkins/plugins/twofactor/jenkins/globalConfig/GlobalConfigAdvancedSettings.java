@@ -13,12 +13,12 @@ import net.sf.json.JSONObject;
 import org.kohsuke.accmod.Restricted;
 import org.kohsuke.accmod.restrictions.NoExternalUse;
 import org.kohsuke.stapler.QueryParameter;
-import org.kohsuke.stapler.StaplerRequest;
-import org.kohsuke.stapler.StaplerResponse;
+import org.kohsuke.stapler.StaplerRequest2;
+import org.kohsuke.stapler.StaplerResponse2;
 import org.kohsuke.stapler.interceptor.RequirePOST;
 import org.kohsuke.stapler.verb.POST;
 
-import javax.servlet.ServletException;
+import jakarta.servlet.ServletException;
 import java.io.IOException;
 import java.util.logging.Logger;
 
@@ -61,7 +61,7 @@ public class GlobalConfigAdvancedSettings implements Action, Describable<GlobalC
   @SuppressWarnings("unused")
   @RequirePOST
   @Restricted(NoExternalUse.class)
-  public void doSaveAdvancedSettingsConfiguration(StaplerRequest request, StaplerResponse response)
+  public void doSaveAdvancedSettingsConfiguration(StaplerRequest2 request, StaplerResponse2 response)
       throws ServletException, IOException {
     try {
       Jenkins.get().checkPermission(Jenkins.ADMINISTER);

@@ -4,11 +4,11 @@ import hudson.model.Action;
 import hudson.model.UserProperty;
 import io.jenkins.plugins.twofactor.constants.PluginUrls;
 import io.jenkins.plugins.twofactor.jenkins.tfaMethods.TfaMethodType;
-import org.kohsuke.stapler.StaplerRequest;
-import org.kohsuke.stapler.StaplerResponse;
+import org.kohsuke.stapler.StaplerRequest2;
+import org.kohsuke.stapler.StaplerResponse2;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public abstract class AbstractTfaConfig extends UserProperty implements Action {
@@ -39,14 +39,14 @@ public abstract class AbstractTfaConfig extends UserProperty implements Action {
         return methodType;
     }
 
-    protected void redirectToAuthPath(StaplerRequest req, StaplerResponse res) {
+    protected void redirectToAuthPath(StaplerRequest2 req, StaplerResponse2 res) {
         res.setStatus(HttpServletResponse.SC_TEMPORARY_REDIRECT);
         res.setHeader("Location", "/"+ PluginUrls.USER_AUTH_PATH+"/"+methodType.getAuthPath());
     }
 
-    abstract public void doConfigure(StaplerRequest req, StaplerResponse res)
+    abstract public void doConfigure(StaplerRequest2 req, StaplerResponse2 res)
             throws IOException, ServletException;
 
-    abstract public void doReset(StaplerRequest req, StaplerResponse rsp)
+    abstract public void doReset(StaplerRequest2 req, StaplerResponse2 rsp)
             throws IOException, ServletException;
 }

@@ -30,7 +30,7 @@ import jenkins.model.GlobalConfiguration;
 import jenkins.model.Jenkins;
 import net.sf.json.JSONObject;
 import org.kohsuke.stapler.DataBoundSetter;
-import org.kohsuke.stapler.StaplerRequest;
+import org.kohsuke.stapler.StaplerRequest2;
 
 import java.io.File;
 import java.util.Collections;
@@ -164,7 +164,7 @@ public class GlobalConfig extends GlobalConfiguration {
   }
 
   @Override
-  public boolean configure(StaplerRequest req, JSONObject formData) throws FormException {
+  public boolean configure(StaplerRequest2 req, JSONObject formData) throws FormException {
 
     try{
       String formPage = formData.getString("formPage");
