@@ -5,7 +5,7 @@
 
 
 ## Description
-This project is a fork of the [jenkinsci/miniorange-two-factor-plugin](https://github.com/jenkinsci/miniorange-two-factor-plugin) with a refactored code base, removed banners and added TOTP Authentication.
+This project is a fork of the [chekist32/2fa-plugin-jenkins](https://github.com/chekist32/2fa-plugin-jenkins) with a refactored code base, upgrade jenkins maven dependencies. run at Jenkins version 2.479.1
 
 **Supported Authentication methods**
 - Security Questions
